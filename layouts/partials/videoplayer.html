@@ -1,0 +1,24 @@
+<script src="{{ "js/jquery.min.js" | relURL }}"></script>
+<script src="{{ "js/jquery.mb.YTPlayer.min.js" | relURL }}"></script>
+
+<script>
+  window.onload = function () {
+    $(function () {
+      $(".player").mb_YTPlayer();
+      console.log("initialized");
+    });
+  };
+</script>
+
+<div class="player"
+     data-property='{
+       videoURL:"HScQI0gFDHE",
+       containment:"body",
+       useOnMobile:true,
+       showControls:false,
+       autoPlay:true,
+       mute:false,
+       startAt:0,
+       showYTLogo:false,
+       opacity:1
+     }'></div>

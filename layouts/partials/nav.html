@@ -1,3 +1,6 @@
-{{ range .Site.Menus.main }}
-<a href="{{ .URL }}">{{ .Name }}</a>
-{{ end }}
+<a href="{{ "" | relURL }}"  class="title">金橘 ku.mquat</a>
+<!-- {{ with .Site.GetPage "/posts" }} -->
+posts
+<a href="{{ "tags/ko" | relURL }}">ko</a> <a href="{{ "tags/en" | relURL }}">en</a>
+<!-- {{ end }} -->
+<a href="{{ "portal" | relURL }}">portal</a>
