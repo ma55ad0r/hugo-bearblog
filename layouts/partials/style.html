@@ -63,6 +63,12 @@
       color: var(--heading-color);
   }
 
+  h1 {
+      font-family: var(--font-main);
+      color: var(--heading-color);
+      margin-bottom: -0.5em;
+  }
+
   a {
       color: var(--link-color);
       cursor: pointer;
@@ -75,6 +81,8 @@
   nav {
     position: fixed;
     background-color: var(--background-color);
+    border-right: 2px solid var(--text-color);
+    border-bottom: 2px solid var(--text-color);
     padding: 5px;
     top: 0;
     left: 0;
@@ -94,12 +102,7 @@
 
   nav a {
         margin-right: 5px;
-        border-bottom: 1.5px solid var(--text-color);
-        text-decoration: none;
-  }
-
-  nav a:hover {
-        text-decoration: none;
+        text-decoration: underline;
   }
 
   strong, b {
@@ -196,7 +199,7 @@
   }
 
   ul.blog-posts li span {
-      flex: 0 0 90px;
+      flex: 0 0 95px;
   }
 
 </style>

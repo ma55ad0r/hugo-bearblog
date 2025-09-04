@@ -2,35 +2,36 @@
 <content>
   {{ if .Data.Singular }}
   <h1 style="margin-bottom:0">Filtered as <span style="text-shadow: 2px 2px 1px var(--cyan), 2px -1px 1px var(--magenta), -2px 1px 1px var(--yellow);">{{ .Title | lower }}</span></h1>
-  <!-- <small>
-    <a href="{{ "blog" | relURL }}">Remove filter</a>
-  </small> -->
   {{ end }}
-  <ul class="blog-posts">
-    {{ range .Pages }}
+
+  {{ $currentYear := "" }}
+  {{ range .Pages }}
+    {{ $postYear := .Date.Format "2006" }}
+    {{ if ne $postYear $currentYear }}
+      {{ if ne $currentYear "" }}
+        </ul>
+      {{ end }}
+      <h1>{{ $postYear }}</h1>
+      <ul class="blog-posts">
+      {{ $currentYear = $postYear }}
+    {{ end }}
     <li>
       <span>
-          <time datetime='{{ .Date.Format "02-01-2006" }}'>
-            {{ .Date.Format (default "02-01-2006" .Site.Params.dateFormat) }}
-          </time>
+        <time datetime='{{( .Date.Format "02 January" | lower )}}'>
+          {{( .Date.Format (default "02 January" .Site.Params.dateFormat) | lower )}}
+        </time>
       </span>
       <a href="{{ .Permalink }}">{{ .Title }}</a>
     </li>
-    {{ else }}
-    <li>
-      No posts yet
-    </li>
-    {{ end }}
-  </ul>
-  <!-- {{ if .Data.Singular }}
-  {{else}}
-    <small>
-      <div>
-        {{ range .Site.Taxonomies.tags }}
-        <a href="{{ .Page.Permalink }}">#{{ .Page.Title }}</a>&nbsp;
-        {{ end }}
-      </div>
-    </small>
-    {{ end }} -->
+  {{ else }}
+    <ul class="blog-posts">
+      <li>
+        No posts yet
+      </li>
+    </ul>
+  {{ end }}
+  {{ if gt (len .Pages) 0 }}
+    </ul>
+  {{ end }}
 </content>
 {{ end }}
