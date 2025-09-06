@@ -12,37 +12,6 @@
 {{ end }}{{ end }}
 <content>
   {{ .Content }}
-
-  <!-- <div id="cusdis_thread"
-    data-host="https://cusdis.com"
-    data-app-id="18b8763c-c7b4-4fa4-aa48-d9d0ee10daeb"
-    data-page-id="{{ .File.UniqueID }}"
-    data-page-url="{{ .Permalink }}"
-    data-page-title="{{ .Title }}"
-    data-theme="auto"
-  ></div>
-  <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
-
-<script>
-  const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-          if (mutation.addedNodes.length === 0) return;
-          const iframe = mutation.addedNodes[0];
-          if (iframe.tagName !== 'IFRAME') return;
-
-          iframe.onload = () => {
-            const adjustIframeHeight = () => {
-              const height = iframe.contentWindow.document.body.scrollHeight;
-              iframe.style.height = height + "px";
-            };
-
-            adjustIframeHeight();
-
-          };
-      });
-  });
-  observer.observe(document.getElementById("cusdis_thread"), { childList: true, subtree: true });
-</script> -->
 </content>
 
 
