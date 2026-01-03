@@ -1,7 +1,7 @@
 {{ define "main" }}
 <content>
   {{ if .Data.Singular }}
-  <h1 style="margin-bottom:0">Filtered as <span style="text-shadow: 2px 2px 1px var(--cyan), 2px -1px 1px var(--magenta), -2px 1px 1px var(--yellow);">{{ .Title | lower }}</span></h1>
+  <h1 style="margin-bottom:0">Filtered as <span style="text-shadow: 2px 2px 1px var(--cyan), 2px -1px 1px var(--magenta), -2px 1px 1px var(--yellow);">{{ .Title }}</span></h1>
   {{ end }}
 
   {{ $currentYear := "" }}
@@ -18,7 +18,7 @@
     <li>
       <span>
         <time datetime='{{( .Date.Format "02 January" | lower )}}'>
-          {{( .Date.Format (default "02 January" .Site.Params.dateFormat) | lower )}}
+          {{( .Date.Format (default "02 January" .Site.Params.dateFormat) )}}
         </time>
       </span>
       <a href="{{ .Permalink }}">{{ .Title }}</a>
